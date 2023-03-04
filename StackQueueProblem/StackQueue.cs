@@ -16,7 +16,7 @@ namespace StackQueue
             this.top = null;
         }
 
-        public void push(int data)
+        public void Push(int data)
         {
             Node node = new Node(data);
             if (this.top == null)
@@ -25,6 +25,47 @@ namespace StackQueue
                 node.next = this.top;
             this.top = node;
             Console.WriteLine(data);
+        }
+        public int Peak()      //Displaying the topmost element in the stack.
+        {
+            if (top == null)
+            {
+                Console.WriteLine("List is Empty");
+                return 0;
+            }
+            else
+            {
+                Console.WriteLine("Top most element is : " + top.data);
+                return top.data;
+            }
+        }
+        public void Pop()       //removing the topmost element from the stack .
+        {
+            if (top == null)
+            {
+                Console.WriteLine("List is Empty");
+            }
+            else
+            {
+                Console.WriteLine("Removed top most element : " + Peak());
+                top = top.next;
+            }
+        }
+        public bool isEmpty()
+        {
+            if (top == null)
+            {
+                Console.WriteLine("Stack is Empty");
+                return true;
+            }
+            else
+            {
+                while (top != null)
+                {
+                    Pop();
+                }
+                return true;
+            }
         }
         public void Display()
         {
@@ -44,11 +85,6 @@ namespace StackQueue
                 }
             }
             Console.WriteLine();
-        }
-
-        internal void Push(int v)
-        {
-            throw new NotImplementedException();
         }
     }
 }
