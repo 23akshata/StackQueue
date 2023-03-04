@@ -1,43 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StackQueue
+using System;
+namespace StacksAndQueues
 {
-    public class Program
+    internal class Program
     {
+
         static void Main(string[] args)
         {
+            Stack stack = new Stack();
+            Queue queue = new Queue();
+            while (true)
             {
-                Console.WriteLine("Welcome to Stack Program in Data Structures");
-                Console.WriteLine("Please select as per the below given options :\n" +
-                    "Press 1: Creating custom stack using LinkedList.\n ");
-                int option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                Console.WriteLine("\nOptions: \n1.Stack Push\n2.Stack Pop\n3.Stack Peak\n4.Display stack\n5.Enqueue\n7.Display Queue");
+                Console.Write("Enter a choice: ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                switch (choice)
                 {
                     case 1:
-                        StackQueue stackObject = new StackQueue();
-                        stackObject.Push(70);
-                        stackObject.Push(30);
-                        stackObject.Push(56);
-                        stackObject.Display();
+                        stack.Push(10);
+                        stack.Push(20);
+                        stack.Push(30);
                         break;
 
-                    case 2: //UC2 stack. Add 56 30 70 .  (peek -display top most element) (pop -removing top-most element)
-                        StackQueue stackObject1 = new StackQueue();
-                        stackObject1.Push(70);
-                        stackObject1.Push(30);
-                        stackObject1.Push(56);
-                        stackObject1.Display(); //IsEmpty() internally calling Pop() and Pop() internally calling Peek().
-                        Console.WriteLine("Is list is empty? " + stackObject1.isEmpty());
-                        stackObject1.Display();
+                    case 2:
+                        stack.Pop();
+                        break;
+
+                    case 3:
+                        stack.Peak();
+                        break;
+
+                    case 4:
+                        stack.Display();
+                        break;
+
+                    case 5:
+                        queue.Enqueue(10);
+                        queue.Enqueue(20);
+                        queue.Enqueue(30);
+                        break;
+
+                    case 8:
+                        queue.Display();
+                        break;
+                    default:
+
+                        stack.Display();
                         break;
 
                 }
-                Console.ReadLine();
+
             }
+
+
+            stack.Pop();
+            Console.ReadKey();
         }
     }
 }
