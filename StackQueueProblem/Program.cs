@@ -40,7 +40,10 @@ namespace StacksAndQueues
                         queue.Enqueue(30);
                         break;
 
-                    case 8:
+                    case 6:
+                        queue.Dequeue();
+                        break;
+                    case 7:
                         queue.Display();
                         break;
                     default:

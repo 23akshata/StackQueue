@@ -34,6 +34,28 @@ namespace StacksAndQueues
             }
             Console.WriteLine($"\n{data} is added in queue");
         }
+        public void Dequeue()
+        {
+            if (tail != null)
+            {
+                if (tail.next == null)
+                {
+                    tail = null;
+                }
+                else
+                {
+                    Node temp = tail;
+                    while (temp.next.next != null)
+                    {
+                        temp = temp.next;
+                    }
+                    temp.next = null;
+                    front = temp;
+                }
+            }
+
+            Display();
+        }
         public void Display()
         {
             Node temp = tail;
